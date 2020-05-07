@@ -13,6 +13,10 @@ body {
   font-style: normal;
   color: $textColor;
   outline: none;
+
+  a, button:active, button:focus {
+    outline: none;
+  }
 }
 
 .header {
