@@ -151,14 +151,16 @@ body {
         margin: 0 0 136px 0;
         width: 203px;
         height: 48px;
+
         background: $orange;
+        color: white;
         border: none;
         border-radius: 24px;
 
         font-weight: 500;
         font-size: 14px;
 
-        color: white;
+        cursor:pointer;
 
         &:hover {
           background: $highlightColor;
