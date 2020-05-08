@@ -17,6 +17,10 @@ body {
   a, button:active, button:focus {
     outline: none;
   }
+
+  a {
+    color: $textColor;
+  }
 }
 
 .header {
