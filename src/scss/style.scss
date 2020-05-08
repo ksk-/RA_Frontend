@@ -3,13 +3,13 @@ $highlightColor: #00BF78;
 $orange: #FB9475;
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-weight: normal;
   src: url(../fonts/Montserrat/Montserrat-Medium.ttf);
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   color: $textColor;
   outline: none;
@@ -24,215 +24,186 @@ body {
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  height: 600px;
   background-image: url("../images/header_background.svg");
 
-  &__top {
-    display:flex;
-    justify-content: space-between;
+  padding-left: 165px;
+  padding-top: 30px;
+  padding-right: 165px;
 
-    height: 45px;
-    margin-left: 165px;
-    margin-right: 165px;
-    padding-top: 30px;
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
 
-    &__logo {
-      display: flex;
-      align-items: center;
+  &__logo {
+    grid-column: span 2;
+    align-self: center;
+    justify-self: flex-start;
 
-      text-align: center;
-      text-decoration: none;
+    text-decoration: none;
 
-      font-weight: bold;
-      font-size: 24px;
+    font-weight: bold;
+    font-size: 24px;
 
-      &:hover, &:visited {
-        color: $textColor;
-      }
-    }
-
-    &__navigation {
-      display: flex;
-      align-items: center;
-
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 2px;
-
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 17px;
-
-        li {
-          display: inline-block;
-          margin-right: 28px;
-
-          &:last-child {
-            margin-right: 0;
-          }
-
-          a:visited {
-            color: $textColor;
-          }
-
-          a:hover {
-            color: $highlightColor;
-            transition: 0.1s;
-          }
-        }
-      }
-
-      a {
-        text-decoration: none;
-      }
-    }
-
-    &__phone {
-      height: 36px;
-      padding: 2px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      &__number {
-        display: flex;
-        justify-content: flex-end;
-
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 14px;
-      }
-
-      &__schedule {
-        display: flex;
-        justify-content: flex-end;
-
-        font-weight: normal;
-        font-size: 11px;
-        line-height: 14px;
-      }
+    &:hover, &:visited {
+      color: $textColor;
     }
   }
 
-  &__content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  &__navigation {
+    grid-column: span 8;
+    align-self: center;
+    justify-self: center;
 
-    height: 100%;
-    margin-left: 165px;
-    margin-right: 165px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 2px;
 
-    align-items: flex-end;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
 
-    &__sign_up {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      li {
+        display: inline-block;
+        margin-right: 28px;
 
-      h1 {
-        margin: 0 0 16px 0;
-        width: 500px;
-        font-weight: 600;
-        font-size: 48px;
-        line-height: 59px;
-      }
-
-      h2 {
-        margin: 0 0 60px 0;
-        font-weight: normal;
-        font-size: 20px;
-        line-height: 24px;
-      }
-
-      button {
-        margin: 0 0 136px 0;
-        width: 203px;
-        height: 48px;
-
-        background: $orange;
-        color: white;
-        border: none;
-        border-radius: 24px;
-
-        font-weight: 500;
-        font-size: 14px;
-
-        cursor:pointer;
-
-        &:hover {
-          background: $highlightColor;
+        &:last-child {
+          margin-right: 0;
         }
 
-        &:active {
-          transform: scale(0.9);
+        a:visited {
+          color: $textColor;
+        }
+
+        a:hover {
+          color: $highlightColor;
           transition: 0.1s;
         }
       }
     }
 
-    &__image {
-      flex-grow: 1;
+    a {
+      text-decoration: none;
+    }
+  }
 
-      position: relative;
-      width: 524px;
-      height: 510px;
-      overflow: hidden;
+  &__phone {
+    grid-column: span 2;
+    align-self: center;
+    justify-self: flex-end;
 
-      &__girl {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: url("../images/girl.svg") no-repeat;
-        z-index: 1;
-      }
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 14px;
+  }
 
-      &__ellipse {
-        position: relative;
+  &__schedule {
+    grid-column: span 12;
+    align-self: center;
+    justify-self: flex-end;
 
-        width: 472px;
-        height: 472px;
-        top: 148px;
-        left: 49px;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 14px;
+  }
 
-        background: $orange;
-        border-radius: 50%;
-        z-index: 0;
-      }
+  &__sign_up {
+    grid-column: span 4;
+    align-self: center;
+    justify-self: flex-start;
+
+    h1 {
+      margin: 0 0 16px 0;
+      width: 500px;
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 59px;
     }
 
-    &__contacts {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+    h2 {
+      margin: 0 0 60px 0;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 24px;
+    }
 
-      margin-left: 2px;
-      margin-right: 2px;
-      margin-bottom: 234px;
+    button {
+      width: 203px;
+      height: 48px;
 
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
+      background: $orange;
+      color: white;
+      border: none;
+      border-radius: 24px;
 
-        li {
-          margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 14px;
 
-          &:last-child {
-            margin-bottom: 0;
-          }
+      cursor:pointer;
 
-          a:hover {
-            img {
-              transform: scale(1.2);
-              transition: 0.1s;
-            }
+      &:hover {
+        background: $highlightColor;
+      }
+
+      &:active {
+        transform: scale(0.9);
+        transition: 0.1s;
+      }
+    }
+  }
+
+  &__image {
+    grid-column: span 7;
+    justify-self: flex-end;
+
+    position: relative;
+    width: 524px;
+    height: 510px;
+    overflow: hidden;
+
+    &__girl {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url("../images/girl.svg") no-repeat;
+      z-index: 1;
+    }
+
+    &__ellipse {
+      position: relative;
+
+      width: 472px;
+      height: 472px;
+      top: 148px;
+      left: 49px;
+
+      background: $orange;
+      border-radius: 50%;
+      z-index: 0;
+    }
+  }
+
+  &__media {
+    align-self: center;
+    justify-self: flex-end;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin-bottom: 20px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        a:hover {
+          img {
+            transform: scale(1.2);
+            transition: 0.1s;
           }
         }
       }
