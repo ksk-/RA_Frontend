@@ -213,11 +213,13 @@ body {
   }
 }
 
-.about {
+section {
   padding-left: 165px;
   padding-top: 100px;
   padding-right: 165px;
+}
 
+.about {
   .container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
