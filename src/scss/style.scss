@@ -14,6 +14,51 @@ body {
   font-style: normal;
   color: $textColor;
   outline: none;
+
+  a, button:active, button:focus {
+    outline: none;
+  }
+
+  a {
+    color: $linkColor;
+  }
+}
+
+.navigation {
+  a, {
+    outline: none;
+  }
+
+  a {
+    color: $textColor;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 28px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a:visited {
+        color: $textColor;
+      }
+
+      a:hover {
+        color: $highlightColor;
+        transition: 0.1s;
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .header {
@@ -22,14 +67,6 @@ body {
   padding-left: 165px;
   padding-top: 30px;
   padding-right: 165px;
-
-  a, button:active, button:focus {
-    outline: none;
-  }
-
-  a {
-    color: $textColor;
-  }
 
   .container {
     display: grid;
@@ -51,42 +88,13 @@ body {
     }
   }
 
-  &__navigation {
+  .navigation {
     grid-column: span 8;
     align-self: center;
     justify-self: center;
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 2px;
-
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 17px;
-
-      li {
-        display: inline-block;
-        margin-right: 28px;
-
-        &:last-child {
-          margin-right: 0;
-        }
-
-        a:visited {
-          color: $textColor;
-        }
-
-        a:hover {
-          color: $highlightColor;
-          transition: 0.1s;
-        }
-      }
-    }
-
-    a {
-      text-decoration: none;
-    }
+    font-weight: 500;
+    font-size: 14px;
   }
 
   &__phone {
@@ -297,5 +305,27 @@ section {
     &:hover {
       text-decoration: underline;
     }
+  }
+}
+
+.footer {
+  padding: 20px 165px;
+
+  font-weight: normal;
+  font-size: 12px;
+
+  .container {
+    display: grid;
+    grid-row-gap: 8px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navigation {
+    grid-row: span 2;
+    align-self: center;
+    justify-self: flex-end;
+
+    font-weight: normal;
+    font-size: 12px;
   }
 }
