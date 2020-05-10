@@ -9,18 +9,47 @@ $orange: #FB9475;
   src: url(../fonts/Montserrat/Montserrat-Medium.ttf);
 }
 
+@mixin rounded($width, $height) {
+  width: $width;
+  height: $height;
+  border-radius: $height / 2;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   color: $textColor;
   outline: none;
 
-  a, button:active, button:focus {
-    outline: none;
+  section {
+    padding-left: 165px;
+    padding-top: 100px;
+    padding-right: 165px;
   }
 
   a {
     color: $linkColor;
+  }
+
+  button {
+    background: $orange;
+    color: white;
+    border: none;
+
+    cursor:pointer;
+
+    &:hover {
+      background: $highlightColor;
+    }
+
+    &:active {
+      transform: scale(0.9);
+      transition: 0.1s;
+    }
+  }
+
+  a, button:active, button:focus {
+    outline: none;
   }
 }
 
@@ -138,27 +167,10 @@ body {
     }
 
     button {
-      width: 203px;
-      height: 48px;
+      @include rounded(203px, 48px);
 
-      background: $orange;
-      color: white;
-      border: none;
-      border-radius: 24px;
-
-      font-weight: 500;
-      font-size: 14px;
-
-      cursor:pointer;
-
-      &:hover {
-        background: $highlightColor;
-      }
-
-      &:active {
-        transform: scale(0.9);
-        transition: 0.1s;
-      }
+        font-weight: 500;
+        font-size: 14px;
     }
   }
 
@@ -219,12 +231,6 @@ body {
       }
     }
   }
-}
-
-section {
-  padding-left: 165px;
-  padding-top: 100px;
-  padding-right: 165px;
 }
 
 .about {
@@ -341,6 +347,56 @@ section {
       line-height: 22px;
 
       text-align: center;
+    }
+  }
+}
+
+.popular {
+  .container {
+    display: grid;
+    grid-gap: 48px 30px;
+    grid-template-columns: 350px 350px 350px;
+    justify-content: space-between;
+  }
+
+  &__title {
+    grid-column: span 3;
+
+    margin-top: 0;
+    margin-bottom: 35px - 48px;
+
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  &__item {
+    width: 350px;
+
+    &__image {
+      margin-bottom: 20px;
+    }
+
+    &__title {
+      font-weight: 600;
+      font-size: 18px;
+
+      margin-bottom: 8px;
+    }
+
+    &__text {
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 20px;
+
+      margin-bottom: 16px;
+    }
+
+    button {
+      @include rounded(112px, 34px);
+
+      font-weight: 500;
+      font-size: 12px;
     }
   }
 }
