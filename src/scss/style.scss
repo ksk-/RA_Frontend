@@ -2,6 +2,7 @@ $textColor: #333333;
 $green: #00BF78;
 $linkColor: #278AFF;
 $orange: #FB9475;
+$lightGray: #F8F6F7;
 
 @font-face {
   font-family: "Montserrat";
@@ -30,13 +31,9 @@ body {
   }
 
   section {
+    margin-top: 100px;
     padding-left: 165px;
-    padding-top: 100px;
     padding-right: 165px;
-  }
-
-  a {
-    color: $linkColor;
   }
 
   button {
@@ -54,6 +51,10 @@ body {
       transform: scale(0.9);
       transition: 0.1s;
     }
+  }
+
+  a {
+    color: $linkColor;
   }
 
   a, button:active, button:focus {
@@ -154,7 +155,7 @@ body {
     line-height: 14px;
   }
 
-  &__sign_up {
+  &__sign-up {
     grid-column: span 4;
     align-self: center;
     justify-self: flex-start;
@@ -337,13 +338,9 @@ body {
     }
 
     &__text {
-      display: flex;
-      flex-direction: column;
-
       font-weight: normal;
       font-size: 14px;
       line-height: 22px;
-
       text-align: center;
     }
   }
@@ -465,6 +462,88 @@ body {
       font-weight: normal;
       font-size: 14px;
       line-height: 17px;
+    }
+  }
+}
+
+.staff {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  background: $lightGray;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__text {
+    margin-bottom: 24px;
+
+    font-weight: normal;
+    font-size: 16px;
+  }
+
+  &__item {
+    &__photo {
+      display: flex;
+      justify-content: stretch;
+
+      width: 255px;
+      height: 300px;
+
+      background-image: url("../images/staff.png");
+      background-repeat: no-repeat;
+      border: none;
+      border-radius: 8px;
+      overflow: hidden;
+
+      &_hover {
+        display: flex;
+        justify-content: center;
+
+        color: transparent;
+        width: 255px;
+
+        &:hover {
+          color: white;
+          background: rgba(black, 0.4);
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+        &__label {
+          align-self: center;
+
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 17px;
+          text-align: center;
+        }
+      }
+    }
+
+    &__name {
+      margin-top: 20px;
+
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    &__position {
+      margin-top: 8px;
+
+      font-weight: normal;
+      font-size: 14px;
+    }
+
+    &__experience {
+      margin-top: 20px;
+
+      font-weight: 300;
+      font-size: 12px;
+
+      text-transform: uppercase;
     }
   }
 }
