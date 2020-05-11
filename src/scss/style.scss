@@ -99,6 +99,44 @@ body {
   }
 }
 
+.photo-item {
+  display: flex;
+  justify-content: stretch;
+
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .hover {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    color: white;
+    background: rgba(black, 0.4);
+
+    text-decoration: none;
+    cursor: pointer;
+
+    opacity: 0;
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    .label {
+      align-self: center;
+
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+    }
+  }
+}
+
 .header {
   background-image: url("../images/header_background.svg");
 
@@ -477,6 +515,11 @@ body {
     justify-content: space-between;
   }
 
+  .photo-item {
+    width: 255px;
+    height: 300px;
+  }
+
   &__text {
     margin-bottom: 24px;
 
@@ -485,44 +528,6 @@ body {
   }
 
   &__item {
-    &__photo {
-      display: flex;
-      justify-content: stretch;
-
-      width: 255px;
-      height: 300px;
-
-      background-image: url("../images/staff.png");
-      background-repeat: no-repeat;
-      border: none;
-      border-radius: 8px;
-      overflow: hidden;
-
-      &_hover {
-        display: flex;
-        justify-content: center;
-
-        color: transparent;
-        width: 255px;
-
-        &:hover {
-          color: white;
-          background: rgba(black, 0.4);
-          text-decoration: none;
-          cursor: pointer;
-        }
-
-        &__label {
-          align-self: center;
-
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 17px;
-          text-align: center;
-        }
-      }
-    }
-
     &__name {
       margin-top: 20px;
 
@@ -545,6 +550,63 @@ body {
 
       text-transform: uppercase;
     }
+  }
+}
+
+.portfolio {
+  .carousel {
+    display: grid;
+    grid-row-gap: 50px;
+
+    margin-top: -64px;
+
+    &__paginator {
+      display: flex;
+      justify-self: end;
+      justify-content: space-between;
+
+      width: 96px;
+
+      button {
+        @include rounded(40px, 40px);
+
+        background-color: transparent;
+
+        &:hover {
+          background-color: $lightGray;
+        }
+      }
+    }
+
+    &__items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column-gap: 29px;
+      justify-self: center;
+
+      margin-left: -165px;
+      margin-right: -165px;
+    }
+  }
+
+  .photo-item {
+    width: 338px;
+    height: 338px;
+
+    .label {
+      display: flex;
+      flex-direction: column;
+
+      .icon {
+        margin-bottom: 8px;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    transition: 0.2s;
   }
 }
 
