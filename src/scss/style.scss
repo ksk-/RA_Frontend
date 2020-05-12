@@ -1,25 +1,48 @@
-$textColor: #333333;
+$mainColor: #333333;
 $green: #00BF78;
-$linkColor: #278AFF;
+$link: #278AFF;
 $orange: #FB9475;
 $lightGray: #F8F6F7;
 
 @font-face {
   font-family: "Montserrat";
-  font-weight: normal;
-  src: url(../fonts/Montserrat/Montserrat-Medium.ttf);
+  font-weight: 300;
+  src: url(../fonts/Montserrat/Montserrat-Light.ttf);
 }
 
-@mixin rounded($width, $height) {
-  width: $width;
-  height: $height;
-  border-radius: $height / 2;
+@font-face {
+  font-family: "Montserrat";
+  font-weight: normal;
+  src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 600;
+  src: url(../fonts/Montserrat/Montserrat-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: bold;
+  src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+
+%reset-link {
+  text-decoration: none;
+  color: $mainColor;
+}
+
+%reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 body {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
-  color: $textColor;
+  color: $mainColor;
   outline: none;
 
   h2 {
@@ -28,6 +51,7 @@ body {
 
     font-weight: bold;
     font-size: 48px;
+    line-height: 59px;
   }
 
   section {
@@ -36,28 +60,8 @@ body {
     padding-right: 165px;
   }
 
-  button {
-    background: $orange;
-    color: white;
-    border: none;
-
-    cursor:pointer;
-
-    &:hover {
-      background: $green;
-    }
-
-    &:active {
-      transform: scale(0.9);
-      transition: 0.1s;
-    }
-  }
-
   a {
-    color: $linkColor;
-  }
-
-  a, button:active, button:focus {
+    color: $link;
     outline: none;
   }
 }
@@ -68,7 +72,7 @@ body {
   }
 
   a {
-    color: $textColor;
+    color: $mainColor;
   }
 
   ul {
@@ -84,7 +88,7 @@ body {
       }
 
       a:visited {
-        color: $textColor;
+        color: $mainColor;
       }
 
       a:hover {
@@ -96,6 +100,72 @@ body {
 
   a {
     text-decoration: none;
+  }
+}
+
+.button {
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  background: $orange;
+  color: white;
+  padding: 9px 20px;
+  border-radius: 17px;
+  line-height: 1;
+  transition: 0.3s background-color;
+
+  font-weight: 500;
+  font-size: 12px;
+
+  &:hover {
+    background-color: darken($orange, 5%);
+  }
+
+  &:active {
+    background-color: darken($orange, 10%);
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &_large {
+    padding: 16px 30px;
+    border-radius: 24px;
+    font-size: 14px;
+  }
+}
+
+.social {
+  $self: &;
+  @extend %reset-list;
+  display: flex;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+
+    transition: 0.1s;
+
+    a:hover {
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &_vertical {
+    flex-direction: column;
+
+    #{$self}__item {
+      &:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 16px;
+      }
+    }
   }
 }
 
@@ -147,6 +217,14 @@ body {
   .container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    position: relative;
+  }
+
+  &__social {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   &__logo {
@@ -160,7 +238,7 @@ body {
     font-size: 24px;
 
     &:hover, &:visited {
-      color: $textColor;
+      color: $mainColor;
     }
   }
 
@@ -174,6 +252,8 @@ body {
   }
 
   &__phone {
+    @extend %reset-link;
+
     grid-column: span 2;
     align-self: center;
     justify-self: flex-end;
@@ -212,13 +292,6 @@ body {
       font-size: 20px;
       line-height: 24px;
     }
-
-    button {
-      @include rounded(203px, 48px);
-
-        font-weight: 500;
-        font-size: 14px;
-    }
   }
 
   &__image {
@@ -250,32 +323,6 @@ body {
       background: $orange;
       border-radius: 50%;
       z-index: 0;
-    }
-  }
-
-  &__media {
-    align-self: center;
-    justify-self: flex-end;
-
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-
-      li {
-        margin-bottom: 20px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
-        a:hover {
-          img {
-            transform: scale(1.2);
-            transition: 0.1s;
-          }
-        }
-      }
     }
   }
 }
@@ -342,7 +389,7 @@ body {
     font-weight: normal;
     font-size: 14px;
 
-    color: $linkColor;
+    color: $link;
     text-decoration: none;
 
     &:hover {
@@ -417,13 +464,6 @@ body {
       line-height: 20px;
 
       margin-bottom: 16px;
-    }
-
-    button {
-      @include rounded(112px, 34px);
-
-      font-weight: 500;
-      font-size: 12px;
     }
   }
 }
@@ -504,11 +544,13 @@ body {
   }
 }
 
+.light-gray {
+  background: $lightGray;
+}
+
 .staff {
   padding-top: 80px;
   padding-bottom: 80px;
-
-  background: $lightGray;
 
   .container {
     display: flex;
@@ -566,15 +608,17 @@ body {
       justify-content: space-between;
 
       width: 96px;
+    }
 
-      button {
-        @include rounded(40px, 40px);
+    &__button {
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: transparent;
 
-        background-color: transparent;
-
-        &:hover {
-          background-color: $lightGray;
-        }
+      &:hover {
+        background-color: $lightGray;
       }
     }
 
@@ -630,6 +674,104 @@ body {
 
   img {
     opacity: 0.3;
+  }
+}
+
+.contacts {
+  font-weight: normal;
+
+  &__address {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__phone {
+    font-size: 16px;
+    line-height: 14px;
+    margin-bottom: 20px;
+  }
+
+  &__email {
+    display: inline-block;
+    margin-bottom: 32px;
+
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  &__social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 58px;
+
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.line-edit {
+  height: 44px;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+
+  width: 406px;
+  padding: 40px;
+
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+
+  &__title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 14px;
+
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+
+    margin-bottom: 35px;
+  }
+
+  &__name, &__phone, &__button {
+    margin-bottom: 20px;
+  }
+
+  &__warning {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.contacts__section {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    padding: 40px 0 40px;
+
+    &__title {
+      align-self: end;
+    }
+
+    &__sign-up-form {
+      grid-row: span 2;
+    }
+
+    &__contacts {
+      align-self: start;
+    }
   }
 }
 
