@@ -1,0 +1,113 @@
+/* Large Devices, Wide Screens */ 
+@media only screen and (max-width: 1200px) { 
+} 
+
+/* Medium Devices, Desktops */ 
+@media only screen and (max-width: 992px) {
+  .header {
+    &__girl {
+      opacity: 0.5;
+    }
+  }
+} 
+
+/* Small Devices, Tablets */ 
+@media only screen and (max-width: 768px) {
+  .header {
+    .container {
+      padding-bottom: 50px;
+    }
+
+    .hamburger {
+      display: inline-block;
+      position: absolute;
+      transform: translateY(-3px);
+    }
+
+    &__girl {
+      display: none;
+    }
+
+    &__top {
+      justify-content: space-between;
+      margin-bottom: 60px;
+      padding-left: 50px;
+    }
+
+    &__navigation {
+      display: none;
+    }
+
+    &__content {
+      text-align: center;
+    }
+
+    &__hero {
+      margin: 0 auto 40px;
+    }
+
+    &__social {
+      display: inline-flex;
+      position: static;
+      transform: none;
+
+      &.social {
+        flex-direction: row;
+
+        .social__item:not(:last-child) {
+          margin-right: 24px;
+        }
+      }
+    }
+  }
+
+  .footer {
+    &__navigation {
+      display: none;
+    }
+
+    &__privacy {
+      justify-self: end;
+    }
+  }
+} 
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width: 480px) { 
+  .header {
+    &__top {
+      flex-direction: column;
+      align-items: center;
+      padding-left: 0;
+    }
+
+    &__logo {
+      margin-bottom: 24px;
+    }
+  }
+
+  .hero {
+    &__title {
+      font-size: 36px;
+    }
+
+    &__subtitle {
+      font-size: 18px;
+    }
+  }
+
+  .footer {
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__company {
+      display: none;
+    }
+  }
+} 
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width: 320px) { 
+}
