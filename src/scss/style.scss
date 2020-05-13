@@ -1,0 +1,223 @@
+$textColor: #333333;
+$highlightColor: #00BF78;
+$orange: #FB9475;
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: normal;
+  src: url(../fonts/Montserrat/Montserrat-Medium.ttf);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  color: $textColor;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 600px;
+  background-image: url("../images/header_background.svg");
+
+  &__top {
+    display:flex;
+    justify-content: space-between;
+
+    height: 45px;
+    margin-left: 165px;
+    margin-right: 165px;
+    padding-top: 30px;
+
+    &__logo {
+      display: flex;
+      align-items: center;
+
+      text-align: center;
+      text-decoration: none;
+
+      font-weight: bold;
+      font-size: 24px;
+
+      &:hover, &:visited {
+        color: $textColor;
+      }
+    }
+
+    &__navigation {
+      display: flex;
+      align-items: center;
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 2px;
+
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+
+        li {
+          display: inline-block;
+          margin-right: 28px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          a:visited {
+            color: $textColor;
+          }
+
+          a:hover {
+            color: $highlightColor;
+          }
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    &__phone {
+      height: 36px;
+      padding: 2px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &__number {
+        display: flex;
+        justify-content: flex-end;
+
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 14px;
+      }
+
+      &__schedule {
+        display: flex;
+        justify-content: flex-end;
+
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 14px;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    height: 100%;
+    margin-left: 165px;
+    margin-right: 165px;
+
+    align-items: flex-end;
+
+    &__sign_up {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      h1 {
+        margin: 0 0 16px 0;
+        width: 500px;
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 59px;
+      }
+
+      h2 {
+        margin: 0 0 60px 0;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 24px;
+      }
+
+      button {
+        margin: 0 0 136px 0;
+        width: 203px;
+        height: 48px;
+        background: $orange;
+        border: none;
+        border-radius: 24px;
+
+        font-weight: 500;
+        font-size: 14px;
+
+        color: white;
+
+        &:hover {
+          background: $highlightColor;
+        }
+      }
+    }
+
+    &__image {
+      flex-grow: 1;
+
+      position: relative;
+      width: 524px;
+      height: 510px;
+      overflow: hidden;
+
+      &__girl {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url("../images/girl.svg") no-repeat;
+        z-index: 1;
+      }
+
+      &__ellipse {
+        position: relative;
+
+        width: 472px;
+        height: 472px;
+        top: 148px;
+        left: 49px;
+
+        background: $orange;
+        border-radius: 50%;
+        z-index: 0;
+      }
+    }
+
+    &__contacts {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      margin-left: 2px;
+      margin-right: 2px;
+      margin-bottom: 234px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          margin-bottom: 20px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          a:hover {
+            img {
+              transform: scale(1.2, 1.2);
+            }
+          }
+        }
+      }
+    }
+  }
+}
