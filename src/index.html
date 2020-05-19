@@ -377,19 +377,19 @@
             </ul>
           </div>
         </div>
-        <div class="sign-up-form contacts__sign-up-form">
+        <form class="sign-up-form contacts__sign-up-form" action="/sign-up" method="POST">
           <div class="sign-up-form__title">Быстрая запись</div>
           <div class="sign-up-form__text">
             Наш менеджер перезвонит в течение нескольких минут, уточнит подробности и согласует время.
           </div>
           <input class="line-edit sign-up-form__name" type="text" placeholder="Ваше имя" name="name" id="name">
           <input class="line-edit sign-up-form__phone" type="tel" placeholder="+7 (___) ___-__-__" name="phone" id="phone">
-          <button class="button button_large sign-up-form__button">Записаться</button>
+          <input class="button button_large sign-up-form__button" type="submit" value="Записаться">
           <div class="sign-up-form__warning">
             <span>Нажимая на кнопку вы соглашаетесь с </span>
             <a href="#contacts">обработкой персональных данных</a>
           </div>
-        </div>
+        </form>
       </div>
     </section>
   </main>
