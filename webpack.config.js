@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -48,6 +49,11 @@ module.exports = {
         options: {
           name: 'fonts/[name].[ext]'
         }
+      },
+      {
+        test: /\.(js)$/i,
+        exclude: /(node_modules)/,
+        use: 'babel-loader'
       }
     ]
   },
@@ -60,6 +66,11 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: PATHS.src + '/images', to: 'images' },
       { from: PATHS.src + '/fonts', to: 'fonts' }
-    ])
-  ]
+    ]),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+    })
+  ],
+  devtool: 'eval-source-map'
 };
