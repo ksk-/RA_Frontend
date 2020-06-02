@@ -31,7 +31,7 @@
         <div class="hero header__hero">
           <h1 class="hero__title">Создай свой образ вместе с нами</h1>
           <p class="hero__subtitle">Идеальный образ за 60 минут</p>
-          <button class="button button_large">Записаться онлайн</button>
+          <button data-fancybox data-src="#sign-up-popup" class="button button_large">Записаться онлайн</button>
         </div>
         <ul class="social social_vertical header__social">
           <li class="social__item">
@@ -112,7 +112,7 @@
             <div class="services__description">
               Аппаратный, комбинированный или классический.
             </div>
-            <button class="button">Записаться</button>
+            <button data-fancybox data-src="#sign-up-popup" class="button">Записаться</button>
           </li>
           <li class="services__item">
             <img class="services__image" src="images/service_2.png" alt="Popular service">
@@ -120,7 +120,7 @@
             <div class="services__description">
               Гель-лак наносится в несколько слоев с использованием базы и топа. Каждый слой полимеризуется в LED-лампе.
             </div>
-            <button class="button">Записаться</button>
+            <button data-fancybox data-src="#sign-up-popup" class="button">Записаться</button>
           </li>
           <li class="services__item">
             <img class="services__image" src="images/service_3.png" alt="Popular service">
@@ -128,7 +128,7 @@
             <div class="services__description">
               Выполняется в одноразовых перчатках наполненных увлажняющим лосьоном.
             </div>
-            <button class="button">Записаться</button>
+            <button data-fancybox data-src="#sign-up-popup" class="button">Записаться</button>
           </li>
           <li class="services__item">
             <img class="services__image" src="images/service_4.png" alt="Popular service">
@@ -136,7 +136,7 @@
             <div class="services__description">
               Аппаратный, комбинированный или классический.
             </div>
-            <button class="button">Записаться</button>
+            <button data-fancybox data-src="#sign-up-popup" class="button">Записаться</button>
           </li>
           <li class="services__item">
             <img class="services__image" src="images/service_5.png" alt="Popular service">
@@ -144,7 +144,7 @@
             <div class="services__description">
               Благодаря этой процедуре увлажнение кожи увеличивается на 80%, также выводит токсины и укрепляет суставы.
             </div>
-            <button class="button">Записаться</button>
+            <button data-fancybox data-src="#sign-up-popup" class="button">Записаться</button>
           </li>
         </ul>
       </div>
@@ -245,7 +245,7 @@
         <ul class="staff-list">
           <li class="employee">
             <div class="photo employee__photo" style="background-image: url('/images/staff_1.png')">
-              <a href="#staff" class="photo__link">
+              <a data-fancybox data-src="#sign-up-popup" class="photo__link" href="javascript:">
                 <div class="photo__label">Записаться <br>к мастеру</div>
               </a>
             </div>
@@ -255,7 +255,7 @@
           </li>
           <li class="employee">
             <div class="photo employee__photo" style="background-image: url('/images/staff_2.png')">
-              <a href="#staff" class="photo__link">
+              <a data-fancybox data-src="#sign-up-popup" class="photo__link" href="javascript:">
                 <div class="photo__label">Записаться <br>к мастеру</div>
               </a>
             </div>
@@ -265,7 +265,7 @@
           </li>
           <li class="employee">
             <div class="photo employee__photo" style="background-image: url('/images/staff_3.png')">
-              <a href="#staff" class="photo__link">
+              <a data-fancybox data-src="#sign-up-popup" class="photo__link" href="javascript:">
                 <div class="photo__label">Записаться <br>к мастеру</div>
               </a>
             </div>
@@ -275,7 +275,7 @@
           </li>
           <li class="employee">
             <div class="photo employee__photo" style="background-image: url('/images/staff_4.png')">
-              <a href="#staff" class="photo__link">
+              <a data-fancybox data-src="#sign-up-popup" class="photo__link" href="javascript:">
                 <div class="photo__label">Записаться <br>к мастеру</div>
               </a>
             </div>
@@ -407,5 +407,26 @@
       <a class="footer__privacy" href="#">Политика конфиденциальности</a>
     </div>
   </footer>
+
+  <div class="sign-up-popup" id="sign-up-popup">
+    <h2>Онлайн запись</h2>
+    <form class="sign-up-popup__form" id="sign-up-popup-form">
+      <label>Ваше имя</label>
+      <input name="name" type="text">
+      <label>Номер телефона</label>
+      <input name="phone" type="text" placeholder="+7 (___) ___-__-__">
+      <label>Выберите мастера</label>
+      <select name="masterId">
+        <option value="">Не выбран</option>
+      </select>
+      <label>Выберите услугу</label>
+      <select name="serviceId">
+        <option value="">Не выбрана</option>
+      </select>
+      <label>Дата визита</label>
+      <input name="visitDate" type="date">
+      <button class="button button_large sign-up-popup__button" type="submit">Отправить</button>
+    </form>
+  </div>
 </body>
 </html>
