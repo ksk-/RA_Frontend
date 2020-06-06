@@ -355,6 +355,16 @@ body {
   }
 }
 
+.tab-panel {
+  &__content-item {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
 .prices-list {
   @extend %reset-list;
 
