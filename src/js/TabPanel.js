@@ -5,7 +5,6 @@ class TabPanel {
         this.activeTab = null;
 
         this.init();
-        this.activateTab(0);
     }
 
     init() {
@@ -18,6 +17,8 @@ class TabPanel {
 
             tab.onChange((index) => this.activateTab(index));
         }
+
+        this.activateTab(0);
     }
 
     activateTab(index) {
@@ -33,14 +34,12 @@ class TabPanel {
 
 class TabItem {
     constructor(tab, content) {
-        this.tab = tab;
+        this.radioButton = tab.querySelector('.tab-bar__radio-button');
         this.content = content;
     }
 
     onChange(callback) {
-        let radioButton = this.tab.querySelector('.tab-bar__radio-button');
-
-        radioButton.addEventListener('change', (event) => {
+        this.radioButton.addEventListener('change', (event) => {
             callback(event.target.value);
         });
     }
@@ -54,7 +53,7 @@ class TabItem {
     }
 
     _toggle(value) {
-        this.tab.classList.toggle('checked', value);
+        this.radioButton.checked = value;
         this.content.classList.toggle('active', value);
     }
 }
